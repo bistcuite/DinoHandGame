@@ -24,6 +24,8 @@ cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
     min_detection_confidence=0.8,
     min_tracking_confidence=0.5) as hands:
+    
+  # Get current frame
   while cap.isOpened():
     ret, image = cap.read()
     # Flip the image horizontally for a later selfie-view display, and convert
