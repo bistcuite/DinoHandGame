@@ -7,7 +7,7 @@ mp_hands = mp.solutions.hands
 # Keeps fingers number
 tipIds = [4, 8, 12, 16, 20]
 
-# Find finger position in image
+# Find finger position in image and returns a landmark list
 def fingerPosition(image, handNo=0):
     lmList = []
     if results.multi_hand_landmarks:
@@ -18,8 +18,8 @@ def fingerPosition(image, handNo=0):
             cx, cy = int(lm.x * w), int(lm.y * h)
             lmList.append([id, cx, cy])
     return lmList
-    
-# For webcam input:
+
+# Get input from webcam
 cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
     min_detection_confidence=0.8,
