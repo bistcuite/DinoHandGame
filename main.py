@@ -3,9 +3,9 @@ import mediapipe as mp
 import pyautogui
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
-##################################
+
+# Keeps fingers number
 tipIds = [4, 8, 12, 16, 20]
-############################
 def fingerPosition(image, handNo=0):
     lmList = []
     if results.multi_hand_landmarks:
