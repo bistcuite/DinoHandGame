@@ -6,6 +6,8 @@ mp_hands = mp.solutions.hands
 
 # Keeps fingers number
 tipIds = [4, 8, 12, 16, 20]
+
+# Find finger position in image
 def fingerPosition(image, handNo=0):
     lmList = []
     if results.multi_hand_landmarks:
