@@ -55,11 +55,6 @@ with mp_hands.Hands(
             pyautogui.press('space')
             print("Space")
 
-    cv2.putText(image, str("Gesture"), (10,40), cv2.FONT_HERSHEY_SIMPLEX,
-                   1, (255, 0, 0), 2)
     cv2.imshow("Hand Landmark", image)
-    key = cv2.waitKey(1) & 0xFF
-    # if the `q` key was pressed, break from the loop
-    if key == ord("q"):
-        break
+    cv2.waitKey(1)
   cv2.destroyAllWindows()
