@@ -38,8 +38,8 @@ with mp_hands.Hands(
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     if results.multi_hand_landmarks:
       for hand_landmarks in results.multi_hand_landmarks:
-        mp_drawing.draw_landmarks(
-            image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+        # Draw landmark on image
+        mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
     # Save fingers position landmarks in a list
     lmList = fingerPosition(image)
     if len(lmList) != 0:
