@@ -5,7 +5,6 @@ mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 ##################################
 tipIds = [4, 8, 12, 16, 20]
-state = None
 Gesture = None
 ############################
 def fingerPosition(image, handNo=0):
@@ -20,16 +19,12 @@ def fingerPosition(image, handNo=0):
     return lmList
     
 # For webcam input:
-cap = cv2.VideoCapture("film.mp4")
+cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
     min_detection_confidence=0.8,
     min_tracking_confidence=0.5) as hands:
   while cap.isOpened():
-    success, image = cap.read()
-    if not success:
-        print("Ignoring empty camera frame.")
-      # If loading a video, use 'break' instead of 'continue'.
-        continue
+    ret, image = cap.read()
     # Flip the image horizontally for a later selfie-view display, and convert
     # the BGR image to RGB.
     image = cv2.cvtColor(cv2.flip(image, 1), cv2.COLOR_BGR2RGB)
@@ -63,7 +58,7 @@ with mp_hands.Hands(
 
     cv2.putText(image, str("Gesture"), (10,40), cv2.FONT_HERSHEY_SIMPLEX,
                    1, (255, 0, 0), 2)
-    cv2.imshow("Media Controller", image)
+    cv2.imshow("Hand Landmark", image)
     key = cv2.waitKey(1) & 0xFF
     # if the `q` key was pressed, break from the loop
     if key == ord("q"):
