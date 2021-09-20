@@ -42,12 +42,8 @@ with mp_hands.Hands(
         fingers = []
         for id in range(1, 5):
             if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
-                #state = "Play"
                 fingers.append(1)
             if (lmList[tipIds[id]][2] > lmList[tipIds[id] - 2][2] ):
-               # state = "Pause"
-               # pyautogui.press('space')
-               # print("Space")
                 fingers.append(0)
         totalFingers = fingers.count(1)
 
