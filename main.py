@@ -40,8 +40,8 @@ with mp_hands.Hands(
       for hand_landmarks in results.multi_hand_landmarks:
         mp_drawing.draw_landmarks(
             image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+    # Save fingers position landmarks in a list
     lmList = fingerPosition(image)
-    #print(lmList)
     if len(lmList) != 0:
         fingers = []
         for id in range(1, 5):
@@ -50,7 +50,8 @@ with mp_hands.Hands(
             if (lmList[tipIds[id]][2] > lmList[tipIds[id] - 2][2] ):
                 fingers.append(0)
         totalFingers = fingers.count(1)
-
+        
+        # if hand fisted, press space key
         if totalFingers == 0:
             pyautogui.press('space')
             print("Space")
