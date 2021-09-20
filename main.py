@@ -5,7 +5,6 @@ mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 ##################################
 tipIds = [4, 8, 12, 16, 20]
-Gesture = None
 ############################
 def fingerPosition(image, handNo=0):
     lmList = []
