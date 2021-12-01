@@ -25,3 +25,6 @@ $ python main.py
 - add your changes
 - push to forked repo
 - send a pull request for me 
+
+## License
+**MIT**
